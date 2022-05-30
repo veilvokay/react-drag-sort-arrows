@@ -1,0 +1,25 @@
+@import './fonts.sass'
+@import './variables.sass'
+@import './typography.sass'
+@import './components/index.sass'
+
+body
+    font-family: 'Roboto'
+    font-size: 16px
+    font-weight: 400
+    color: var(--color-eerie-black)
+    background-color: var(--color-floral-white)
+
+.main
+    display: flex
+    justify-content: space-between
+
+.container
+    position: relative
+    width: var(--container-width)
+    min-width: var(--container-width)
+    margin: 0 auto
+
+.albums-wrap,
+.photos-wrap
+    flex-basis: 33.3333%
