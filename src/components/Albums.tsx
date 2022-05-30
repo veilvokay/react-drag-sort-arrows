@@ -64,11 +64,11 @@ const Albums = (props: IAlbumsProps) => {
         
     }
 
-    const updateArrows = useXarrow();
+    let updateArrows = useXarrow();
 
     return (
-        <View className="albums-wrap">
-            <DragDropContext onDragEnd={e => handleDragEnd(e.destination, e.source)} onDragUpdate={updateArrows}>
+        <View className="albums-wrap" onMouseMove={updateArrows}>
+            <DragDropContext onDragEnd={e => handleDragEnd(e.destination, e.source)}>
                     {_.map(reorderedAlbums, (album, key) => (
                         <View key={key}>
                             <Album albumKey={key} currentAlbum={album} />

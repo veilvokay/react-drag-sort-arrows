@@ -6,6 +6,8 @@ interface IViewProps {
 	id?: string;
 	divRef?: any;
 	children?: any | any[];
+
+	onMouseMove?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 const View = (props: IViewProps) => {
@@ -14,6 +16,7 @@ const View = (props: IViewProps) => {
 		style: props.style,
 		id: props.id,
 		ref: props.divRef,
+		onMouseMove: props.onMouseMove,
 	}
 
 	return (
