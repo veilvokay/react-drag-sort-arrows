@@ -1,4 +1,4 @@
-import React, { createRef, useRef, useState } from 'react'
+import React from 'react'
 import { ISinglePhoto } from '../types/PhotoTypes'
 import View from './layout/View';
 
@@ -8,7 +8,6 @@ interface IPhotosProps {
 
 const Photos = (props: IPhotosProps) => {
     const { photos } = props;
-    const [reorderedPhotos, setReorderedPhotos] = useState<ISinglePhoto[]>(photos);
 
     return (
         <View className='photos-wrap'>

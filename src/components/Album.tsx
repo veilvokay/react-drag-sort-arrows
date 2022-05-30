@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
+import React from 'react'
+import View from './layout/View'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
-import Xarrow, { refType, useXarrow } from 'react-xarrows'
+import Xarrow from 'react-xarrows'
 import { IAlbum } from '../types/AlbumTypes'
 
 interface IAlbumProps {
@@ -46,11 +47,13 @@ const Album = (props: IAlbumProps) => {
                     )
                 }}
             </Droppable>
-            {/* {currentAlbum.photos.map((photo, index) => {
+            {currentAlbum.photos.map((photo, index) => {
                 return (
-                 <Xarrow start={photo.arrowTargetId} end={photo.id} key={index} />
+                    <View className='xarrow-wrapper' key={index}>
+                        <Xarrow start={photo.arrowTargetId} end={photo.id} endAnchor={'left'} />
+                    </View>
                 )
-            })} */}
+            })}
         </>
     )
 }

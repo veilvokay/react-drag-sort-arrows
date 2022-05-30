@@ -1,4 +1,4 @@
-import React, { createRef, useMemo, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import _ from 'lodash'
 import { v4 } from 'uuid';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
@@ -7,7 +7,7 @@ import View from './layout/View';
 import { IAlbums } from '../types/AlbumTypes';
 import Album from './Album';
 import { toCamelCaseString } from '../helpers/TextHelpers';
-import Xarrow, { useXarrow } from 'react-xarrows';
+import { useXarrow } from 'react-xarrows';
 
 
 interface IAlbumsProps {
@@ -57,7 +57,6 @@ const Albums = (props: IAlbumsProps) => {
                     id: v4(),
                     name: newAlbumName as string,
                     photos: [],
-                    arrowEnd: null,
                 }
             }
         });
@@ -70,19 +69,12 @@ const Albums = (props: IAlbumsProps) => {
         <View className="albums-wrap" onMouseMove={updateArrows}>
             <DragDropContext onDragEnd={e => handleDragEnd(e.destination, e.source)}>
                     {_.map(reorderedAlbums, (album, key) => (
-                        <View key={key}>
-                            <Album albumKey={key} currentAlbum={album} />
-                            {album.photos.map((photo, index) => {
-                                return (
-                                    <Xarrow start={photo.arrowTargetId} end={photo.id} key={index} />
-                                )
-                            })}
-                        </View>
+                        <Album albumKey={key} currentAlbum={album} key={key} />
                     ))}
             </DragDropContext>
-            <div className="empty-album" style={{textAlign: 'center', border: `1px solid red`, padding: `10px`, cursor: 'pointer'}} onClick={addAlbum}>
+            <button className="empty-album" onClick={addAlbum}>
                 <h2 className="title-h2">ADD ALBUM</h2>
-            </div>
+            </button>
         </View>
     )
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import { useXarrow } from "react-xarrows";
 import { IAlbums } from "../types/AlbumTypes";
 import { ISinglePhoto } from "../types/PhotoTypes";
 import Albums from "./Albums";
@@ -7,7 +6,6 @@ import { albumsData, photosData } from "./data/WebsiteData";
 import Container from "./layout/Container";
 import View from "./layout/View";
 import Photos from "./Photos";
-
 
 export default class Home extends React.Component {
     private _albums: IAlbums;
